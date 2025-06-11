@@ -1,0 +1,46 @@
+import React, { useState, useEffect } from 'react';
+
+const ShopList = ({ setSelectedShop }) => {
+  const [shops, setShops] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchShops = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/shops');
+        const data = await response.json();
+        setShops(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("エラーが発生しました: ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchShops();
+  }, []);
+
+  if (loading) {
+    return <div>読み込み中...</div>;
+  }
+
+  // データが空の時の処理
+  if (!shops || shops.length === 0) {
+    return <div>表示するお店がありません。</div>;
+  }
+
+  return (
+    <div>
+      <h1>お店一覧</h1>
+      <ul>
+        {shops.map((shop) => (
+          <li key={shop.id} onClick={() => setSelectedShop(shop)}>
+            {shop.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ShopList;

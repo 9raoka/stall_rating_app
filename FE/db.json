@@ -1,0 +1,31 @@
+{
+    "shops": [
+      { "id": 1, "name": "Sushi Shop" },
+      { "id": 2, "name": "Pizza Place" },
+      { "id": 3, "name": "Coffee Corner" }
+    ],
+    "shopsDetails": {
+      "1": {
+        "rating": 4.5,
+        "menu": [
+          { "name": "Sushi Set", "price": 1500 },
+          { "name": "Sashimi Plate", "price": 2000 }
+        ]
+      },
+      "2": {
+        "rating": 4.2,
+        "menu": [
+          { "name": "Margherita", "price": 1200 },
+          { "name": "Pepperoni", "price": 1300 }
+        ]
+      },
+      "3": {
+        "rating": 4.8,
+        "menu": [
+          { "name": "Latte", "price": 500 },
+          { "name": "Cappuccino", "price": 550 }
+        ]
+      }
+    }
+  }
+  
